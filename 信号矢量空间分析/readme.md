@@ -22,11 +22,11 @@
 
 ## 内积
 
-两矢量内积 $<x, y> \equiv x_1y_1^* + x_2y_2^*+...$ 。
+两矢量内积 $\langle x, y\rangle \equiv x_1y_1^* + x_2y_2^*+...$ 。
 
 对有无限维的信号矢量，可将此定义**推广至积分**。
 
-柯西-施瓦茨不等式： $<x, y> \leq <x, x><y, y>$ 。
+柯西-施瓦茨不等式： $\langle x, y\rangle \leq \langle x, x\rangle \langle y, y\rangle$ 。
 
 # 信号的正交函数分解
 
