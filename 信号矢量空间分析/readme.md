@@ -62,9 +62,7 @@ N维矢量可分解为N个正交矢量之和，每个矢量的系数为投影值
 
 ## 沃尔什函数
 
-一种定义方式： $WAL(k, t)=\prod\limits_{r=0}^{p-1} sgn[cos(2^{r}k_r\pi t)]$ 。
-
-其中， $k \in N,\quad k=\sum\limits_{r=0}^{p-1}k_r2^r$ 。
+一种定义方式： $WAL(k, t)=\prod\limits_{r=0}^{p-1} sgn[cos(2^{r}k_r\pi t)],\quad k\in N,\quad k=\sum\limits_{r=0}^{p-1}k_r2^r$ 。
 
 
 ## 相关
