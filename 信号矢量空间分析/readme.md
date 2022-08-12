@@ -14,7 +14,7 @@
 
 ## 范数
 
-矢量x的p阶范数： $||x||_p\equiv (\sum_{i=1}^N|x_i|^p)^{1/p},\quad x\in R^N\ or\ C^N$ .
+矢量x的p阶范数： $||x||_p\equiv(\sum\limits_{i=1}^N|x_i|^p)^{1/p},\quad x\in R^N\ or\ C^N$ .
 
 定义为其各维数值绝对值的p次幂之和的p次方根。
 
