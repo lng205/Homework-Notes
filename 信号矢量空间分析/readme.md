@@ -36,7 +36,7 @@ N维矢量可分解为N个正交矢量之和，每个矢量的系数为投影值
 
 任意信号可用另一信号逼近，逼近的效果可用方均误差描述： $\Delta = \int (f_1-cf_2)^2$ 。
 
-对c求导使误差最小，得 $c = \frac{\int f_1f_2}{\int f_2^2}$ 。
+$c'=0\Rightarrow c = \frac{\int f_1f_2}{\int f_2^2}$ 。
 
 **推论**： $\int f_1f_2 = 0 \Leftrightarrow f_1\perp f_2$ 。
 
