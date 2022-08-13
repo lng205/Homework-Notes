@@ -27,7 +27,7 @@ $$
 $$
 R_{k,i}(\tau)=\begin{cases}
 \int_0^Tc_k(t-\tau)c_i(t)dt=T&k=i\text{ and }\tau=0\\
-\int_0^Tc_k(t-\tau)c_i(t)dt<<T&k\neq i\text{ or }\tau \neq0
+\int_0^Tc_k(t-\tau)c_i(t)dt << T&k\neq i\text{ or }\tau \neq0
 \end{cases}
 $$
 
