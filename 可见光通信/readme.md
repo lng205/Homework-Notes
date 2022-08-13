@@ -31,7 +31,7 @@ $$
 
 $$
 \begin{bmatrix}
-y_0\\y_1\\y_2\\y_3\\\hdashline y_4\\y_5\\y_6\\y_7\\y_8\\y_9
+y_0 \\ y_1 \\ y_2 \\ y_3 \\ \hdashline y_4 \\ y_5 \\ y_6 \\ y_7 \\ y_8 \\ y_9
 \end{bmatrix}
 =\begin{bmatrix}
 h_0\\
@@ -47,7 +47,7 @@ h_2&h_1&h_0\\
 \end{bmatrix}
 \times
 \begin{bmatrix}
-m_5\\m_6\\n_5\\n_6\\\hdashline n_1\\n_2\\n_3\\n_4\\n_5\\n_6
+m_5 \\ m_6 \\ n_5 \\ n_6 \\ \hdashline n_1 \\ n_2 \\ n_3 \\ n_4 \\ n_5 \\ n_6
 \end{bmatrix}\\
 =\begin{bmatrix}
 h_0m_5\\
