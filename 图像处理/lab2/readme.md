@@ -8,17 +8,23 @@
 
 高斯滤波更适于处理高斯噪声。
 
+![filtering](./images/filtering.png)
+
 <br>
 
 ## 锐化
 
 在RGB和Lab空间使用不同参数对图像进行锐化操作，通过低通滤波和求差值，提取图像高频部分。
 
+![sharpening](./images/sharpening.png)
+
 <br>
 
 ## 材质提取
 
 将图像与不同材质的核卷积，再进行阈值分割，可以针对材质进行图像分割。
+
+![texture](./images/texture.png)
 
 <br>
 
@@ -41,3 +47,5 @@ Canny算子分多个步骤：
 5. 只保留与强边缘相连的弱边缘。
 
 Canny算子的检测效果通常好于Sobel，使用更广泛。
+
+![edge_detection](./images/edge_detection.png)
