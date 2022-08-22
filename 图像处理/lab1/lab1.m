@@ -2,9 +2,9 @@
 im_board = board_position(0,0);
 
 %% Activity 2: Histograms and Contrast Adjustment
-im_fish1 = imread('fish001.jpg');
-im_fish2 = imread('fish002.png');
-im_water = imread('underwater001.png');
+im_fish1 = imread('images/fish001.jpg');
+im_fish2 = imread('images/fish002.png');
+im_water = imread('images/underwater001.png');
 
 figure(1)
 im_fish1_gray = rgb2gray(im_fish1);%转灰度图
@@ -63,7 +63,7 @@ im_adjusted_water = lab2rgb(im_water_lab);
 imshowpair(im_water,im_adjusted_water,'montage');
 
 %% Activity 3: Image Thresholding
-im_apple = imread('apples.jpg');%读取
+im_apple = imread('./images/apples.jpg');%读取
 im_apple_gray = rgb2gray(im_apple);%转灰度图
 
 level = multithresh(im_apple_gray,2);%用大津法找两个分割线
@@ -80,8 +80,8 @@ plot([level(1) level(1)],ylim,'r')%标出分割线
 plot([level(2) level(2)],ylim,'r')
 
 %% Activity 4: Spot the Difference 
-im = imread('spot_the_difference.png');%读取图像内容
-im_info = imfinfo('spot_the_difference.png');%读取图像参数信息
+im = imread('./images/spot_the_difference.png');%读取图像内容
+im_info = imfinfo('./images/spot_the_difference.png');%读取图像参数信息
 
 im1 = im(:,1:350,:);%分离左右图像
 im2 = im(:,351:700,:);

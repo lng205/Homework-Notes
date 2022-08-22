@@ -1,7 +1,7 @@
 function im = board_position(row,col)
 
     % Load Image
-    im = imread('chess.png');
+    im = imread('./images/chess.png');
     
     % Obtain the size of the image
     [rows, columns] = size(im);

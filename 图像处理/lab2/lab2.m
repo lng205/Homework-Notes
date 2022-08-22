@@ -1,5 +1,5 @@
 %% Tutorial Activity 1: Image Noise and Filtering
-im = imread('mountain.png');%读取
+im = imread('./images/mountain.png');%读取
 
 im_gauss = imnoise(im,'gaussian',0,0.01); %添加噪声
 im_sp1 = imnoise(im,'salt & pepper',0.05); 
@@ -17,8 +17,8 @@ figure
 montage({im_gauss,im_sp1,im_sp2;im2,im3,im4;im5,im6,im7},'size',[3 3])
 
 %% Tutorial Activity 2: Image sharpening
-im_eye = imread('eye.jpg');
-im_moon = imread('moon1.jpg');
+im_eye = imread('./images/eye.jpg');
+im_moon = imread('./images/moon1.jpg');
 
 h = fspecial('gaussian',6,1);
 im_fil = imfilter(im_eye,h,'replicate');
@@ -51,7 +51,7 @@ figure
 montage({im_eye,im_sharpen},'size',[1 2]);
 
 %% Tutorial Activity 3: Simple texture clustering
-im = imread('dog.png');
+im = imread('./images/dog.png');
 im = rgb2gray(im2double(im));
 im_fil = colfilt(im,[20, 20],'sliding',@std);
 
@@ -61,15 +61,15 @@ montage({im,BW},'size',[1 2]);
 
 
 %% Tutorial Activity 4: Detecting Edges
-im_fig = imread('figures.jpg');
+im_fig = imread('./images/figures.jpg');
 
-im_chess = imread('chess.png');
+im_chess = imread('./images/chess.png');
 im_chess = rgb2gray(im2double(im_chess));
 
-im_coins1 = imread('coins001.png');
+im_coins1 = imread('./images/coins001.png');
 im_coins1 = rgb2gray(im2double(im_coins1));
 
-im_coins2 = imread('coins002.png');
+im_coins2 = imread('./images/coins002.png');
 im_coins2 = rgb2gray(im2double(im_coins2));
 
 canny_thresh = [0.1 0.2];
