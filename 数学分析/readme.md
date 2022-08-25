@@ -28,23 +28,23 @@ $$\sqrt{-1}=i,\ z = x+yi.\quad x,\ y\in \mathbb R, \quad z\in\mathbb C$$
 
 - **函数**为数集到数集的单射。
 
-$$f(z)=u(z)+iv(z),\quad f:\mathbb C \rarr\mathbb C,\quad u,v\in\mathbb R$$
+$$f(z)=u(z)+iv(z),\quad f:\mathbb C \to\mathbb C,\quad u,v\in\mathbb R$$
 
 - **数列**为定义域为整数集的函数。
 
-$$a_1,a_2\dots,a_n,\quad a:\mathbb Z \rarr \mathbb C$$
+$$a_1,a_2\dots,a_n,\quad a:\mathbb Z \to \mathbb C$$
 
 ## 极限
 
 - 函数的在某点的极限为，值域内极限值的任意邻域，均对应于定义域内该点某去心邻域。
 
-$$\lim_{z\rarr z_0}=f(z_0)\quad\equiv\quad\forall \epsilon>0,\ \exist \delta,\quad |z-z_0|<\delta\Rarr|f(z)-f(z_0)|<\epsilon$$
+$$\lim_{z\to z_0}=f(z_0)\quad\equiv\quad\forall \epsilon>0,\ \exists \delta,\quad |z-z_0|<\delta\to|f(z)-f(z_0)|<\epsilon$$
 
 ## 导数
 
 - 函数在一点的导数为，该点函数增量与自变量增量的比，在增量为零处的极限。
 
-$$f'(z_0)=\frac{df}{dz}|_{z=z_0}\equiv \lim_{\Delta z \rarr 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}$$
+$$f'(z_0)=\frac{df}{dz}|_{z=z_0}\equiv \lim_{\Delta z \to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}$$
 
 - 函数在一点解析表示，函数在该点及某邻域内可导。
 
@@ -54,7 +54,7 @@ $$f'(z_0)=\frac{df}{dz}|_{z=z_0}\equiv \lim_{\Delta z \rarr 0}\frac{f(z_0+\Delta
 
 - 一无穷小为另一无穷小的高阶无穷小，表示比值为无穷小。
 
-$$\alpha=o(\beta)\quad\equiv\quad\frac\alpha\beta\rarr0$$
+$$\alpha=o(\beta)\quad\equiv\quad\frac\alpha\beta\to0$$
 
 - 函数在一点的微分为，该点函数增量与自变量增量的一阶线性等价关系。
 
@@ -84,7 +84,7 @@ $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\theta)}{g'(\theta)},\ \theta\in(a,b)$$
 
 定义所求点值为零，不影响极限。则
 
-$$\lim_{x\rarr x_0}\frac {f(x)}{g(x)}=\lim_{x\rarr 0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim_{\theta\rarr 0}\frac{f'(\theta)}{g'(\theta)}$$
+$$\lim_{x\to x_0}\frac {f(x)}{g(x)}=\lim_{x\to 0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim_{\theta\to 0}\frac{f'(\theta)}{g'(\theta)}$$
 
 ## 柯西-黎曼(Cauchy-Riemann)条件
 
@@ -94,7 +94,7 @@ $$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},\quad
 证明
 
 $$\begin{align}
-\lim_{\Delta x\rarr 0,\Delta y=0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}&=\lim_{\Delta x=0,\Delta y\rarr 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}\\
+\lim_{\Delta x\to 0,\Delta y=0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}&=\lim_{\Delta x=0,\Delta y\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}\\
 \frac{u(x_0+\Delta x, y_0)+iv(x_0+\Delta x,y_0)}{\Delta x}&=\frac{u(x_0, y_0+\Delta y)+iv(x_0,y_0+\Delta y)}{i\Delta y}\\
 \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}&=-i\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}\end{align}$$
 
@@ -153,7 +153,7 @@ $$f(z_0)=\frac1{2\pi i}\oint \frac{f(z)}{z-z_0}dz$$
 被积函数在所求点去心邻域内解析，令围线逼近所求点，有
 
 $$\begin{align}
-\frac1{2\pi i}\oint_c \frac{f(z)}{z-z_0}dz&=\frac1{2\pi i}\oint_{R\rarr 0} \frac{f(z)}{z-z_0}dz\\
+\frac1{2\pi i}\oint_c \frac{f(z)}{z-z_0}dz&=\frac1{2\pi i}\oint_{R\to 0} \frac{f(z)}{z-z_0}dz\\
 &=f(z_0)\frac1{2\pi i}\oint \frac1{z-z_0}dz\\
 &=f(z_0)\frac1{2\pi i}\int_0^{2\pi}\frac1{z-z_0}i(z-z_0)d\theta\\
 &=f(z_0)
