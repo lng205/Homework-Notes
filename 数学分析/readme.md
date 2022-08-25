@@ -38,7 +38,7 @@ $$a_1,a_2\dots,a_n,\quad a:\mathbb Z \to \mathbb C$$
 
 - 函数的在某点的极限为，值域内极限值的任意邻域，均对应于定义域内该点某去心邻域。
 
-$$\lim_{z\to z_0}=f(z_0)\quad\equiv\quad\forall \epsilon>0,\ \exists \delta,\quad |z-z_0|<\delta\to|f(z)-f(z_0)|<\epsilon$$
+$$\lim_{z\to z_0}=f(z_0)\quad\equiv\quad\forall \epsilon>0,\ \exists \delta,\quad |z-z_0|<\delta\Rightarrow|f(z)-f(z_0)|<\epsilon$$
 
 ## 导数
 
@@ -112,7 +112,7 @@ $$\begin{align}
 
 - 二元实函对坐标的围线积分等于偏导在内部的二重积分。
 
-$$\oint Pdx+Qdy=\oiint-\frac{\partial P}{\partial y}+\frac{\partial Q}{\partial x}dxdy$$
+$$\oint Pdx+Qdy=\iint-\frac{\partial P}{\partial y}+\frac{\partial Q}{\partial x}dxdy$$
 
 证明
 
@@ -130,7 +130,7 @@ $$\oint fdz=0$$
 
 $$\begin{align}\oint fdz&=\oint(u+iv)(dx+idy)\\
 &=\oint (udx-vdy)+i(vdx+udy)\\
-&=\oiint-(\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x})+i(-\frac{\partial v}{\partial y}+\frac{\partial u}{\partial x})dxdy\\&=0\end{align}$$
+&=\iint-(\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x})+i(-\frac{\partial v}{\partial y}+\frac{\partial u}{\partial x})dxdy\\&=0\end{align}$$
 
 (6)为格林公式，对多连通域切分可构成多个单连通域，满足定理条件。切割线上的积分反向相消，不改变积分值。
 
