@@ -8,6 +8,12 @@ $z_k$为扩充复平面内孤立奇点.
 
 ## 柯西积分定理
 
-- $\oint_c fdz=0$, $c$为闭路.
+$$\oint_c fdz=0$$
 
-$$\oint_c fdz=\oint_c(u+iv)(dx+idy)$$
+$c$为闭路.
+
+### 证明
+
+$$\begin{align}\oint_c fdz&=\oint_c(u+iv)(dx+idy)\\
+&=\oint_c (udx-vdy)+i(vdx+udy)\\
+&=\end{align}$$
