@@ -1,10 +1,12 @@
-# 复分析复习总结
-
-实数集是复数集的子集，复分析定理可用于实分析。复分析的一些定理与实分析形式相似，而一些证明又需要对实虚部二元实函应用实分析定理。
+# 复分析
 
 复分析是信号和系统分析的有效工具。
 
-先给出一些定义。
+实数集是复数集的子集，复分析定理可用于实分析。复分析的一些定理与实分析形式相似，一些证明又需要对实虚部二元实函应用实分析定理。
+
+---
+
+---
 
 ## 复数
 
@@ -89,7 +91,7 @@ e^{\Delta x}-1=t\Rightarrow
 
 - 幂函数的导数等于幂乘以幂次减一的自身。
 
-证明
+证明：
 
 $$\begin{align*}
 (x^\mu)'&=\lim_{\Delta x \to 0}\frac{(x+\Delta x)^\mu-x^\mu}{\Delta x}\\
@@ -120,7 +122,7 @@ $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\theta)}{g'(\theta)},\ \theta\in(a,b)$$
 
 证明：
 
-令所求点函数值为零，不影响极限。则
+令所求点函数值为零，不影响极限，此时可用[微分中值定理](#微分中值定理)。
 
 $$\lim_{x\to x_0}\frac {f(x)}{g(x)}=\lim_{x\to 0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim_{\theta\to 0}\frac{f'(\theta)}{g'(\theta)}$$
 
@@ -134,7 +136,7 @@ $$f(x)=\sum_{k=0}^n \frac{f^k(x_0)}{k!}(x-x_0)^k+o((x-x_0)^k)$$
 
 证明：
 
-余项的各阶导数为0，反复使用洛必达定理，结果为无穷小。
+余项的各阶导数为0，反复使用[洛必达定理](#洛必达lhôpital定理)，结果为无穷小。
 
 ---
 
@@ -145,6 +147,8 @@ $$f(x)=\sum_{k=0}^n \frac{f^k(x_0)}{k!}(x-x_0)^k+o((x-x_0)^k)$$
 $$e^{ix}=\cos x+i\sin x$$
 
 证明：
+
+通过[泰勒定理](#实函的泰勒talor展开定理)。
 
 $$\begin{align*}
 e^{ix}&=1+ix+\frac{(ix)^2}{2!}+\dots+\frac{(ix)^n}{n!}\\
@@ -158,11 +162,17 @@ e^{ix}&=1+ix+\frac{(ix)^2}{2!}+\dots+\frac{(ix)^n}{n!}\\
 
 - 复数可表示为模和辐角形式。
 
-$$\begin{align}
-z=|z|e^{iArgz}&=\sqrt {x^2+y^2}e^{i\tan^{-1}\frac yx}\\
+$$z=|z|e^{iArgz}=\sqrt {x^2+y^2}e^{i\tan^{-1}\frac yx}$$
+
+证明：
+
+通过[欧拉公式](#欧拉euler公式)。
+
+$$\begin{align*}
+z&=\sqrt {x^2+y^2}e^{i\tan^{-1}\frac yx}\\
 &=\sqrt{x^2+y^2}(\cos(\tan^{-1}\frac yx)+\sin(\tan^{-1}\frac yx)i)\\
 &=x+yi
-\end{align}$$
+\end{align*}$$
 
 ---
 
@@ -170,7 +180,7 @@ z=|z|e^{iArgz}&=\sqrt {x^2+y^2}e^{i\tan^{-1}\frac yx}\\
 
 - 解析函数实虚部可互求。
 
-$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},\quad
+$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},
 \frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$$
 
 证明：
@@ -179,6 +189,22 @@ $$\begin{align*}
 \lim_{\Delta x\to 0,\Delta y=0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}&=\lim_{\Delta x=0,\Delta y\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}\\
 \frac{u(x_0+\Delta x, y_0)+iv(x_0+\Delta x,y_0)}{\Delta x}&=\frac{u(x_0, y_0+\Delta y)+iv(x_0,y_0+\Delta y)}{i\Delta y}\\
 \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}&=-i\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}\end{align*}$$
+
+---
+
+### 调和函数和解析函数
+
+- **拉普拉斯方程**：
+
+$$\frac{\partial^2 u}{\partial^2 x}+\frac{\partial^2 u}{\partial^2 y}=0$$
+
+- **调和函数**：满足拉普拉斯方程的二元实函。
+
+- 解析函数实虚部均为调和函数。
+
+证明：
+
+$$\frac{\partial^2 u}{\partial^2 x}+\frac{\partial^2 u}{\partial^2 y}=\frac{\partial^2 v}{\partial x\partial y}-\frac{\partial^2 v}{\partial x\partial y}=0$$
 
 ---
 
@@ -192,9 +218,33 @@ $$\begin{align*}
 
 $$\alpha=o(\beta)\quad\equiv\quad\frac\alpha\beta\to0$$
 
-- 函数在一点的**微分**：该点函数增量与自变量增量的一阶线性等价关系。
+- 函数在一点的**微分**：该点附近函数增量与自变量增量的一阶线性等价关系。
 
 $$df=f'dz+o(dz)$$
+
+- **可微的充要条件**：可导。
+
+证明：
+
+若函数可导，则增量比有极限，故余项是高阶无穷小。若可微，则增量比的极限为常数加高阶无穷小。
+
+---
+
+### 解析的充要条件
+
+- **函数解析**等价于实虚部可微且满足[C-R公式](#柯西-黎曼cauchy-riemann公式)。
+
+证明：
+
+必要性在C-R公式中已证，下证充分性。将函数增量表示为实虚部函数的微分，再套用C-R公式，得到微分形式。
+
+$$\begin{align*}
+\Delta f&=\Delta u+i\Delta v\\
+&=\frac{\partial u}{\partial x}\Delta x+\frac{\partial u}{\partial y}\Delta y+i\frac{\partial v}{\partial x}\Delta x+i\frac{\partial v}{\partial y}\Delta y+o(|\Delta z|)\\
+&=\frac{\partial v}{\partial y}\Delta x+i^2\frac{\partial v}{\partial x}\Delta y+i\frac{\partial v}{\partial x}\Delta x+i\frac{\partial v}{\partial y}\Delta y+o(|\Delta z|)\\
+&=(\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x})(\Delta x+i\Delta y)+o(|\Delta z|)\\
+&=(\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x})(\Delta z)+o(|\Delta z|)\\
+\end{align*}$$
 
 ---
 
@@ -212,6 +262,18 @@ $$df=f'dz+o(dz)$$
 
 ---
 
+### 微积分基本定理
+
+- 导数的积分等于原函数的变化量。
+
+$$\int_a^bf'dz=f(b)-f(a)$$
+
+证明：
+
+增量比乘以自变量增量，在增量趋于零时，等于因变量增量。因变量增量的和等于变化量。
+
+---
+
 ### 格林(Green)公式
 
 - 二元实函对坐标的围线积分等于偏导在内部的二重积分。
@@ -220,11 +282,11 @@ $$\oint Pdx+Qdy=\iint-\frac{\partial P}{\partial y}+\frac{\partial Q}{\partial x
 
 证明：
 
-对单连通域，在积分变量上取一小段，切出积分区域的一片。上下侧自变量增量符号相反，则曲线积分值为所有段上下侧之差的和。由微积分基本定理可知，上下侧之差等于导数的积分。对多连通域，可切割为单连通域，割线上积分反向相消。
+对单连通域，在积分变量上取一小段，切出积分区域的一片。上下侧自变量增量符号相反，则曲线积分值为所有段上下侧之差的和。由[微积分基本定理](#微积分基本定理)，上下侧之差等于导数的积分。对多连通域，可切割为单连通域，割线上积分反向相消。
 
 ---
 
-## 柯西(Cauchy)积分定理
+### 柯西(Cauchy)积分定理
 
 - **闭路**：有向光滑闭曲线。
 
@@ -240,13 +302,15 @@ $$\begin{align}\oint fdz&=\oint(u+iv)(dx+idy)\\
 &=\oint (udx-vdy)+i(vdx+udy)\\
 &=\iint-(\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x})+i(-\frac{\partial v}{\partial y}+\frac{\partial u}{\partial x})dxdy\\&=0\end{align}$$
 
-其中(6)为[格林公式]，(7)为[C-R公式]。
+其中(6)为[格林公式](#格林green公式)，(7)为[C-R公式](#柯西-黎曼cauchy-riemann公式)。
 
-由柯西积分定理可得两个推论。
+---
 
 ### 复合闭路定理
 
-- 内外侧曲线构成复合闭路，积分和为零。故内外侧同相曲线积分相等。
+- 内外侧曲线构成复合闭路，根据[柯西积分定理](#柯西cauchy积分定理)，曲线积分和为零。故内外侧同相曲线积分相等。
+
+---
 
 ### 柯西积分公式
 
@@ -256,7 +320,7 @@ $$f(z_0)=\frac1{2\pi i}\oint \frac{f(z)}{z-z_0}dz$$
 
 证明：
 
-被积函数在所求点去心邻域内解析，令围线逼近所求点，有
+被积函数在所求点去心邻域内解析，构建复合闭路。根据[定理](#复合闭路定理)，令围线逼近所求点，有
 
 $$\begin{align*}
 \frac1{2\pi i}\oint_c \frac{f(z)}{z-z_0}dz&=\frac1{2\pi i}\oint_{R\to 0} \frac{f(z)}{z-z_0}dz\\
@@ -267,19 +331,25 @@ $$\begin{align*}
 
 ---
 
+---
+
 ## 留数
 
 函数在一点的邻域内解析，其留数可由围线积分给出。
 
 $$Res[f,z_0]=2\pi i\oint fdz$$
 
-## 留数定理
+### 留数定理
 
-- 扩充的复平面（包含无穷远点）内有有限孤立奇点，则所有孤立奇点留数和为0。
+- 扩充的复平面（包含无穷远点）内有有限个孤立奇点，则所有孤立奇点留数和为0。
 
 $$\sum Res[f,z_k]=0$$
 
 证明
+
+---
+
+---
 
 <!-- ## 级数
 
