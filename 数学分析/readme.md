@@ -16,7 +16,7 @@
 
 $$\sqrt{-1}=i,\ z = x+yi.\quad x,\ y\in \mathbb R, \quad z\in\mathbb C$$
 
-- 共轭：实部相等虚部相反。
+- **共轭**：实部相等虚部相反。
 
 $$\bar z=x-yi$$
 
@@ -52,7 +52,7 @@ $$f(z)=u(z)+iv(z),\quad f:\mathbb C \to\mathbb C,\quad u,v\in\mathbb R$$
 
 $$a_1,a_2\dots,a_n,\quad a:\mathbb Z \to \mathbb C$$
 
-**注意实函可和无数个复函在实数集中有相同的映射关系，因此可以构建复函来分析实函。
+**注意实函可和无数个复函在实数集中有相同的映射关系，因此可以构建复函来分析实函。**
 
 ---
 
@@ -146,7 +146,7 @@ $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\theta)}{g'(\theta)},\ \theta\in(a,b)$$
 
 令所求点函数值为零，不影响极限，此时可用[微分中值定理](#微分中值定理)。
 
-$$\lim_{x\to x_0}\frac {f(x)}{g(x)}=\lim_{x\to 0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim_{\theta\to 0}\frac{f'(\theta)}{g'(\theta)}$$
+$$\lim_{x\to x_0}\frac {f(x)}{g(x)}=\lim_{x\to 0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim_{x\to x_0}\frac{f'(x)}{g'(x)}$$
 
 ---
 
