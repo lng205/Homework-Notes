@@ -202,8 +202,6 @@ $$\frac{\partial^2 u}{\partial^2 x}+\frac{\partial^2 u}{\partial^2 y}=0$$
 
 - 解析函数实虚部均为调和函数。
 
-$$\mathscr{F}$$
-
 证明：
 
 $$\frac{\partial^2 u}{\partial^2 x}+\frac{\partial^2 u}{\partial^2 y}=\frac{\partial^2 v}{\partial x\partial y}-\frac{\partial^2 v}{\partial x\partial y}=0$$
