@@ -16,6 +16,8 @@ $$\sqrt{-1}=i,\ z = x+yi.\quad x,\ y\in \mathbb R, \quad z\in\mathbb C$$
 
 ---
 
+---
+
 ## 函数
 
 - **映射**：集合中元素的对应关系。单射表示一个元素只映射到一个元素。
@@ -30,13 +32,15 @@ $$a_1,a_2\dots,a_n,\quad a:\mathbb Z \to \mathbb C$$
 
 ---
 
+---
+
 ## 极限
 
 - 函数的在某点的**极限**：值域内极限值的任意邻域，均对应于定义域内该点某去心邻域。
 
 $$\lim_{z\to z_0}=f(z_0)\quad\equiv\quad\forall \epsilon>0,\ \exists \delta,\quad |z-z_0|<\delta\Rightarrow|f(z)-f(z_0)|<\epsilon$$
 
-由此可以定义自然常数。
+---
 
 ### 自然常数
 
@@ -50,6 +54,8 @@ $$e=\lim_{x\to0}(1+x)^\frac1x,x\in\mathbb R$$
 
 ---
 
+---
+
 ## 导数
 
 - 函数在一点的**导数**：该点函数增量与自变量增量的比，在增量为零处的极限。
@@ -58,7 +64,7 @@ $$f'(z_0)=\frac{df}{dz}|_{z=z_0}\equiv \lim_{\Delta z \to 0}\frac{f(z_0+\Delta z
 
 - 函数在一点**解析**：函数在该点及某邻域内可导。
 
-由此可以得到一些推论。
+---
 
 ### 指数函数的导数
 
@@ -77,6 +83,8 @@ e^{\Delta x}-1=t\Rightarrow
 &=e^x
 \end{align*}$$
 
+---
+
 ### 幂函数的导数
 
 - 幂函数的导数等于幂乘以幂次减一的自身。
@@ -92,6 +100,8 @@ u=\frac{\Delta x}x,v=(1+\frac{\Delta x}x)^\mu-1\Rightarrow
 \end{align*}
 $$
 
+---
+
 ### 微分中值定理
 
 - （内部可导的闭区间）两端实函数差之比等于中间某点的导数之比。
@@ -101,6 +111,8 @@ $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\theta)}{g'(\theta)},\ \theta\in(a,b)$$
 证明：
 
 端点处等值则区间内存在零点，称为罗尔定理。构造函数，使上式满足罗尔定理条件，可证。
+
+---
 
 ### 洛必达(L'Hôpital)定理
 
@@ -112,6 +124,8 @@ $$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f'(\theta)}{g'(\theta)},\ \theta\in(a,b)$$
 
 $$\lim_{x\to x_0}\frac {f(x)}{g(x)}=\lim_{x\to 0}\frac{f(x)-f(x_0)}{g(x)-g(x_0)}=\lim_{\theta\to 0}\frac{f'(\theta)}{g'(\theta)}$$
 
+---
+
 ### 实函的泰勒(Talor)展开定理
 
 - 实函可展开为多项式，余项为高阶无穷小。
@@ -122,6 +136,8 @@ $$f(x)=\sum_{k=0}^n \frac{f^k(x_0)}{k!}(x-x_0)^k+o((x-x_0)^k)$$
 
 余项的各阶导数为0，反复使用洛必达定理，结果为无穷小。
 
+---
+
 ### 欧拉(Euler)公式
 
 - 复指数实部为幂的余弦，虚部为正弦。
@@ -130,13 +146,41 @@ $$e^{ix}=\cos x+i\sin x$$
 
 证明：
 
-根据泰勒展开定理：
-
 $$\begin{align*}
 e^{ix}&=1+ix+\frac{(ix)^2}{2!}+\dots+\frac{(ix)^n}{n!}\\
 &=(1-\frac{x^2}{2!}+\frac{x^4}{4!}+\dots)+i(x-\frac{x^3}{3!}+\dots)\\
 &=\cos x+i\sin x
 \end{align*}$$
+
+---
+
+### 复数的指数表示
+
+- 复数可表示为模和辐角形式。
+
+$$\begin{align}
+z=|z|e^{iArgz}&=\sqrt {x^2+y^2}e^{i\tan^{-1}\frac yx}\\
+&=\sqrt{x^2+y^2}(\cos(\tan^{-1}\frac yx)+\sin(\tan^{-1}\frac yx)i)\\
+&=x+yi
+\end{align}$$
+
+---
+
+### 柯西-黎曼(Cauchy-Riemann)公式
+
+- 解析函数实虚部可互求。
+
+$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},\quad
+\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$$
+
+证明：
+
+$$\begin{align*}
+\lim_{\Delta x\to 0,\Delta y=0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}&=\lim_{\Delta x=0,\Delta y\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}\\
+\frac{u(x_0+\Delta x, y_0)+iv(x_0+\Delta x,y_0)}{\Delta x}&=\frac{u(x_0, y_0+\Delta y)+iv(x_0,y_0+\Delta y)}{i\Delta y}\\
+\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}&=-i\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}\end{align*}$$
+
+---
 
 ---
 
@@ -154,6 +198,8 @@ $$df=f'dz+o(dz)$$
 
 ---
 
+---
+
 ## 积分
 
 - 曲线的**内侧**：前进方向的左侧。**正向**：逆时针方向。
@@ -166,17 +212,15 @@ $$df=f'dz+o(dz)$$
 
 ---
 
-## 复数的指数表示
+### 格林(Green)公式
 
-- 复数可表示为模和辐角形式。
+- 二元实函对坐标的围线积分等于偏导在内部的二重积分。
 
-$$\begin{align}
-z=|z|e^{iArgz}&=\sqrt {x^2+y^2}e^{i\tan^{-1}\frac yx}\\
-&=\sqrt{x^2+y^2}(\cos(\tan^{-1}\frac yx)+\sin(\tan^{-1}\frac yx)i)\\
-&=x+yi
-\end{align}$$
+$$\oint Pdx+Qdy=\iint-\frac{\partial P}{\partial y}+\frac{\partial Q}{\partial x}dxdy$$
 
-(2)为[欧拉公式](#欧拉(Euler)公式)。
+证明：
+
+对单连通域，在积分变量上取一小段，切出积分区域的一片。上下侧自变量增量符号相反，则曲线积分值为所有段上下侧之差的和。由微积分基本定理可知，上下侧之差等于导数的积分。对多连通域，可切割为单连通域，割线上积分反向相消。
 
 ---
 
@@ -196,27 +240,7 @@ $$\begin{align}\oint fdz&=\oint(u+iv)(dx+idy)\\
 &=\oint (udx-vdy)+i(vdx+udy)\\
 &=\iint-(\frac{\partial u}{\partial y}+\frac{\partial v}{\partial x})+i(-\frac{\partial v}{\partial y}+\frac{\partial u}{\partial x})dxdy\\&=0\end{align}$$
 
-其中(6)为格林公式，(7)为C-R公式。下面证明相关公式。
-
-- **格林(Green)公式**：二元实函对坐标的围线积分等于偏导在内部的二重积分。
-
-$$\oint Pdx+Qdy=\iint-\frac{\partial P}{\partial y}+\frac{\partial Q}{\partial x}dxdy$$
-
-证明：
-
-对单连通域，在积分变量上取一小段，切出积分区域的一片。上下侧自变量增量符号相反，则曲线积分值为所有段上下侧之差的和。由微积分基本定理可知，上下侧之差等于导数的积分。对多连通域，可切割为单连通域，割线上积分反向相消。
-
-- **柯西-黎曼(Cauchy-Riemann)公式**：解析函数实虚部可互求。
-
-$$\frac{\partial u}{\partial x}=\frac{\partial v}{\partial y},\quad
-\frac{\partial u}{\partial y}=-\frac{\partial v}{\partial x}$$
-
-证明：
-
-$$\begin{align*}
-\lim_{\Delta x\to 0,\Delta y=0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}&=\lim_{\Delta x=0,\Delta y\to 0}\frac{f(z_0+\Delta z)-f(z_0)}{\Delta z}\\
-\frac{u(x_0+\Delta x, y_0)+iv(x_0+\Delta x,y_0)}{\Delta x}&=\frac{u(x_0, y_0+\Delta y)+iv(x_0,y_0+\Delta y)}{i\Delta y}\\
-\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}&=-i\frac{\partial u}{\partial y}+\frac{\partial v}{\partial y}\end{align*}$$
+其中(6)为[格林公式]，(7)为[C-R公式]。
 
 由柯西积分定理可得两个推论。
 
@@ -241,6 +265,8 @@ $$\begin{align*}
 &=f(z_0)
 \end{align*}$$
 
+---
+
 ## 留数
 
 函数在一点的邻域内解析，其留数可由围线积分给出。
@@ -254,8 +280,6 @@ $$Res[f,z_0]=2\pi i\oint fdz$$
 $$\sum Res[f,z_k]=0$$
 
 证明
-
-
 
 <!-- ## 级数
 
