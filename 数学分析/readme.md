@@ -329,6 +329,22 @@ $$\begin{align*}
 &=f(z_0)
 \end{align*}$$
 
+- **解析函数有任意阶导数**且可由围线积分算得。
+
+$$f^n(z_0)=\frac{n!}{2\pi i}\oint\frac {f(z)}{(z-z_0)^n}dz$$
+
+证明：
+
+使围线包含两点，积分值之差即为函数增量。
+
+$$\begin{align*}
+f(z_0+\Delta z)+f(z_0)&=\frac 1{2\pi i}\oint f(z)(\frac 1{z-(z_0+\Delta z)}-\frac1{z-z_0})dz\\
+&=\frac {\Delta z}{2\pi i}\oint \frac{f(z)dz}{(z-z_0-\Delta z)(z-z_0)}\\
+\lim_{\Delta z\to 0}\frac{f(z_0+\Delta z)+f(z_0)}{\Delta z}&=\frac 1{2\pi i}\oint \frac{f(z)dz}{(z-z_0)^2}
+\end{align*}$$
+
+同理递推即可。也可类比$\frac1{1-x}$求导过程。
+
 ---
 
 ---
@@ -345,7 +361,7 @@ $$Res[f,z_0]=2\pi i\oint fdz$$
 
 $$\sum Res[f,z_k]=0$$
 
-证明
+证明：
 
 ---
 
