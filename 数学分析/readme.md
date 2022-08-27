@@ -1,12 +1,10 @@
-# 复分析
+# 数学分析
 
-复分析是信号和系统分析的有效工具。
+数学分析以自然数为先验概念，由此构建出完整体系。
 
-复数由实数定义，实数集是复数集的子集，复分析定理可用于实分析。
+复数由实数定义。实数集是复数集的子集。复分析的一些定理与实分析形式相似，一些证明又需要对实虚部二元实函应用实分析定理。
 
-复分析的一些定理与实分析形式相似，一些证明又需要对实虚部二元实函应用实分析定理。
-
-数值分析以自然数为先验概念，以此构建出整个体系。
+复分析是信号和系统分析的有效工具。下面先介绍复分析和涉及的实分析概念和定理。
 
 ---
 
@@ -16,7 +14,7 @@
 
 - 设**有理数**的概念抽象自自然界，并由幂运算扩充为**实数**。
 
-- 将实数单位的负值开根定义为复数单位，构成**复数**。
+- 将实数单位的负值开根定义为虚部单位，构成**复数**。
 
 $$\sqrt{-1}=i,\ z = x+yi.\quad x,\ y\in \mathbb R, \quad z\in\mathbb C$$
 
@@ -24,7 +22,7 @@ $$\sqrt{-1}=i,\ z = x+yi.\quad x,\ y\in \mathbb R, \quad z\in\mathbb C$$
 
 $$\bar z=x-yi$$
 
-- **复平面**：将数映射至实虚变量构成的二维平面。
+- **复平面**：将复数映射至实虚变量构成的二维平面。
 
 - **扩充的复平面**：含无穷远点的复平面，记为z-。
 
@@ -38,7 +36,7 @@ $$|z_1\pm z_2|\leq|z_1|+|z_2|$$
 
 证明：
 
-根据模和共轭的关系可证。也可用矢量的运算法则和三角形两边和大于第三边证明。
+根据模和共轭的关系可证。也可用矢量的运算法则和三角形两边和大于第三边公理证明。
 
 ---
 
@@ -94,9 +92,9 @@ $$f'(z_0)=\frac{df}{dz}|_{z=z_0}\equiv \lim_{\Delta z \to 0}\frac{f(z_0+\Delta z
 
 ---
 
-### 指数函数的导数
+### 实指数函数和幂函数的导数
 
-- 以自然常数为底的指数函数的导数等于自身。
+- 以自然常数为底的实指数函数的导数等于自身。
 
 $$(e^x)'=e^x$$
 
@@ -111,22 +109,9 @@ e^{\Delta x}-1=t\Rightarrow
 &=e^x
 \end{align*}$$
 
----
+- 幂函数可换底为指数函数求导。
 
-### 幂函数的导数
-
-- 幂函数的导数等于幂乘以幂次减一的自身。
-
-证明：
-
-$$\begin{align*}
-(x^\mu)'&=\lim_{\Delta x \to 0}\frac{(x+\Delta x)^\mu-x^\mu}{\Delta x}\\
-&=x^{\mu-1}\lim_{\Delta x \to 0}\frac{(1+\frac{\Delta x}x)^\mu-1}{\frac{\Delta x}x}\\
-u=\frac{\Delta x}x,v=(1+\frac{\Delta x}x)^\mu-1\Rightarrow
-&=x^{\mu-1}\lim_{t\to 0}\frac t{\ln(1+t)}\lim_{u\to 0}\frac{\mu\ln(1+u)}{u}\\
-&=\mu x^{\mu-1}
-\end{align*}
-$$
+$$(x^\mu)'=(e^{\mu\ln x})'=\mu x^{\mu-1}$$
 
 ---
 
@@ -174,7 +159,7 @@ $$e^{ix}=\cos x+i\sin x$$
 
 证明：
 
-通过[泰勒定理](#实函的泰勒talor展开定理)，[指数函数的导数](#指数函数的导数)和[幂函数的导数](#幂函数的导数)可证。
+通过[泰勒定理](#实函的泰勒talor展开定理)和[求导公式](#实指数函数和幂函数的导数)可证。
 
 $$\begin{align*}
 e^{ix}&=1+ix+\frac{(ix)^2}{2!}+\dots+\frac{(ix)^n}{n!}\\
@@ -250,7 +235,11 @@ $$\alpha=o(\beta)\quad\equiv\quad\frac\alpha\beta\to0$$
 
 $$df=f'dz+o(dz)$$
 
-- **可微的充要条件**：可导。
+---
+
+### 可微的充要条件
+
+- **函数可微**等价于可导。
 
 证明：
 
@@ -264,17 +253,39 @@ $$df=f'dz+o(dz)$$
 
 证明：
 
-必要性在C-R公式中已证，下证充分性。将函数增量表示为实虚部函数的微分，再套用C-R公式，得到微分形式。
+必要性在C-R公式中已证，下证充分性。将函数增量表示为实虚部函数的微分，再套用C-R公式，得到函数的微分式。
 
 $$\begin{align*}
-\Delta f&=\Delta u+i\Delta v\\
-&=\frac{\partial u}{\partial x}\Delta x+\frac{\partial u}{\partial y}\Delta y+i\frac{\partial v}{\partial x}\Delta x+i\frac{\partial v}{\partial y}\Delta y+o(|\Delta z|)\\
-&=\frac{\partial v}{\partial y}\Delta x+i^2\frac{\partial v}{\partial x}\Delta y+i\frac{\partial v}{\partial x}\Delta x+i\frac{\partial v}{\partial y}\Delta y+o(|\Delta z|)\\
-&=(\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x})(\Delta x+i\Delta y)+o(|\Delta z|)\\
-&=(\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x})(\Delta z)+o(|\Delta z|)\\
+df&=du+idv\\
+&=\frac{\partial u}{\partial x}dx+\frac{\partial u}{\partial y}dy+i\frac{\partial v}{\partial x}dx+i\frac{\partial v}{\partial y}dy+o(|dz|)\\
+&=\frac{\partial v}{\partial y}dx+i^2\frac{\partial v}{\partial x}dy+i\frac{\partial v}{\partial x}dx+i\frac{\partial v}{\partial y}dy+o(|dz|)\\
+&=(\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x})(dx+idy)+o(|dz|)\\
+&=(\frac{\partial v}{\partial y}+i\frac{\partial v}{\partial x})(dz)+o(|dz|)\\
 \end{align*}$$
 
 **这意味着C-R公式给出了由实函构建解析函数的方法。**
+
+---
+
+### 指数函数和幂函数的导数
+
+- 指数函数的导数为自身。
+
+$$(e^z)'=e^z$$
+
+证明：
+
+根据[欧拉公式](#欧拉euler公式)和[解析的充要条件](#解析的充要条件)可证。
+
+$$e^z=e^x\cos y+ie^x\sin y\\
+\left\{\begin{array}{rl}
+\frac{\partial(e^x\cos y)}{\partial x}=\frac{\partial(e^x\sin y)}{\partial y}\\
+\frac{\partial(e^x\cos y)}{\partial y}=-\frac{\partial(e^x\sin y)}{\partial x}
+\end{array}\right.\Rightarrow (e^z)'=e^z$$
+
+- 幂函数可换底为指数函数求导。
+
+$$(z^a)'=az^{(a-1)}$$
 
 ---
 
@@ -417,7 +428,17 @@ $$\exists z\in z^-,\sum_{n\in\mathbb N} a_nz^n=0,a_n\in\mathbb C$$
 
 若无根，则多项式的倒数解析且有界，由[刘维尔定理](#刘维尔liouville定理)知多项式恒为常数，则矛盾。
 
-递归使用此定理，则可将多项式分解至一阶。
+**递归使用此定理，则可将多项式分解至一阶。**
+
+---
+
+---
+
+## 级数
+
+- **级数**：数列的和。若项数在无穷远点的极限存在，则级数收敛至该极限值。
+
+- **函数项级数**：由整数到函数的映射构成函数数列，也即一数集到数列集的映射。函数数列和为函数项级数。
 
 ---
 
