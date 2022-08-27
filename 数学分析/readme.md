@@ -481,7 +481,7 @@ $$\lambda=\lim_{n\to\infty}|\frac{a_{n+1}}{a_n}|=\lim_{n\to\infty}\sqrt[n]{|a_n|
 
 - 函数可在解析圆域内展开为圆心增量的幂级数。
 
-$$f(z_0)=\sum_{n\in\mathbb N}\frac{f^{(n)}(z_0)}{n!}(z-z_0)^n,|z-z_0|<R$$
+$$f(z_0)=\sum_{n\in\mathbb N} \frac{f^{(n)}(z_0)}{n!}(z-z_0)^n, |z-z_0| < R$$
 
 证明：
 
