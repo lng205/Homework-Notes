@@ -278,7 +278,6 @@ $$(e^z)'=e^z$$
 根据[欧拉公式](#欧拉euler公式)和[解析的充要条件](#解析的充要条件)可证。
 
 $$e^z=e^x\cos y+ie^x\sin y\\
-
 \frac{\partial(e^x\cos y)}{\partial x}=\frac{\partial(e^x\sin y)}{\partial y},
 \frac{\partial(e^x\cos y)}{\partial y}=-\frac{\partial(e^x\sin y)}{\partial x}
 \Rightarrow (e^z)'=e^z$$
