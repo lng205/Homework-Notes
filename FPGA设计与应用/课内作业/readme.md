@@ -6,17 +6,18 @@
 
 模块采用三段式状态机，状态切换和数值计算为时序逻辑实现，次态计算通过组合逻辑实现。模块提供复位和输出信号有效管脚，操作数位数可在调用时设置。
 
+## 状态转换图
+
 ![states](./images/states.png)
 
 ## 算法
 
-$gcd(u,u) = u$
+$$\begin{align*}gcd(u,u) &= u\\
+gcd(2u,2v) &= 2gcd(u,v)\\
+gcd(2u,v) &= gcd(u,v)\\
+gcd(u,v) &= gcd(|u-v|, min(u,v))\end{align*}$$
 
-$gcd(2u,2v) = 2gcd(u,v)$
-
-$gcd(2u,v) = gcd(u,v)$
-
-$gcd(u,v) = gcd(|u-v|, min(u,v))$ (u, v are both odd)
+前后式之间为if-else关系。
 
 模块初始为Init状态，识别到start后进入Sub状态。
 
