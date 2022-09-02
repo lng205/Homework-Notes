@@ -97,8 +97,8 @@ $$WAL(k, t)=\prod\limits_{r=0}^{p-1} sgn[cos(2^{r}k_r\pi t)],\quad k\in N,\quad 
 信号过系统，输出等于信号与冲激响应卷积，频谱为**信号频谱与系统频响相乘**。设抽判时刻为0，则抽样值等于**输出频谱的积分**，也就等于**信号频谱和系统频响矢量的内积**。给定系统能量，即固定频谱矢量长度，则两矢量平行时内积最大。因此，系统频谱为**信号频谱的共轭**。由于实信号频谱共轭对称，且频域对称等于时域对称，故**系统冲激响应与信号关于零时刻对称**。若同时向右平移抽判时刻和冲激响应，不改变上述结论。
 
 $$\begin{align*}
-f(t)*\delta(t)|_{t=t_0}&=\int F(f)H(f)e^{j2\pi ft_0}df=\langle \vec F, \vec He^{j2\pi ft_0}\rangle\\
-\Rightarrow H(f)e^{j2\pi ft_0}&=F^*(f)=F(-f)\\
+f(t)\ast\delta(t)|_{t=t_0}&=\int F(f)H(f)e^{j2\pi ft_0}df=\langle \vec F, \vec He^{j2\pi ft_0}\rangle\\
+\Rightarrow H(f)e^{j2\pi ft_0}&=F^\ast(f)=F(-f)\\
 \Rightarrow\delta(t)&=f(-(t-t_0))
 \end{align*}$$
 
