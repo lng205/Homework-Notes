@@ -26,9 +26,9 @@ RSA是目前最主流的非对称加密算法。非对称加密由公私钥构�
 
 ### 费马小定理(Fermat's little theorm)
 
-对质数p和任意自然数m，有
+- 自然数的质数幂与自身对该质数同余
 
-$$m^p-m\mod p=0$$
+$$\forall m\in \mathbb N,\quad p\in \mathbb P,\quad m^p-m\mod p=0$$
 
 证明：
 
@@ -60,3 +60,33 @@ $$[(m+1)^p-m^p-1]+[m^p-m]=(m+1)^p-(m+1)$$
 
 两数具有相同的通解形式，易证。
 
+---
+
+下面介绍RSA算法原理
+
+- 取两质数p, q, 对任意自然数m，可取两自然数d, e, m的de次幂与m对pq同余。
+
+$$\forall m \in \mathbb N,\quad\exist p, q \in \mathbb P,\quad d, e\in \mathbb N,\quad m^{de}\equiv m\mod pq$$
+
+取
+
+$$\begin{align}
+de&=(p-1)(q-1)+1\\
+\Rightarrow m^{de}&=mm^{(p-1)(q-1)}\\
+&=m(kp+1)=m(kq+1),\quad k\in \mathbb Z^+\\
+&=m\mod pq
+\end{align}$$
+
+其中(3)来自[费马小定理](#费马小定理fermats-little-theorm)，(4)来自[中国剩余定理](#中国剩余定理)。
+
+取e为密钥，则当且仅当e与(p-1)(q-1)互质时d存在（模逆元），作为公钥。
+
+实际上e的取值可更灵活，但原理一致。
+
+对m^e取pq的模后发送，收方计算d次幂再取模实现解密。发送时取模不改变结果，原理参见[DH算法](#dhdiffie-hellman密钥交换)
+
+举例：
+
+取p=5, q=17, e=5, d=13, m=10. m^5%85=40, 40^13%85=10.
+
+使发送方将中间人的公钥误认为目标的公钥，则中间人可获知发送的信息。
