@@ -66,7 +66,7 @@ $$[(m+1)^p-m^p-1]+[m^p-m]=(m+1)^p-(m+1)$$
 
 - 取两质数p, q, 对任意自然数m，可取两自然数d, e, m的de次幂与m对pq同余。
 
-$$\forall m \in \mathbb N,\quad\exist p, q \in \mathbb P,\quad d, e\in \mathbb N,\quad m^{de}\equiv m\mod pq$$
+$$\forall m \in \mathbb N,\quad\exists p, q \in \mathbb P,\quad d, e\in \mathbb N,\quad m^{de}\equiv m\mod pq$$
 
 取
 
