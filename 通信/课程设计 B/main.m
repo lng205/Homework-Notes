@@ -36,23 +36,23 @@ offset2 = (offset+numDataCarriers+2*toneOffset2+toneOffset)/2;
 n = -floor(L/2):floor(L/2);
 pb = sinc((numDataCarriers+2*toneOffset)/numFFT*n);  % Sinc function prototype filter
 
-w = (0.5*(1+cos(2*pi.*n/(L-1)))).^0.6;  % Sinc truncation window
+% w = (0.5*(1+cos(2*pi.*n/(L-1)))).^0.6;  % Sinc truncation window
 % w = hamming(L)';
-% w = hann(L)';
-% w = rectwin(L)';
+w = hann(L)';
 
 fnum = (pb.*w)/sum(pb.*w);  % Normalized lowpass filter coefficients
 filtTx = dsp.FIRFilter(fnum);  % Use dsp filter objects for filtering
 filtRx = clone(filtTx);
 
 % band2
-pb2 = sinc((numDataCarriers2+2*toneOffset)/numFFT2*n);  % Sinc function prototype filter
-fnum = (pb2.*w)/sum(pb2.*w);  % Normalized lowpass filter coefficients
-fnum2 = fnum.*exp(1i*2*pi*n*(numDataCarriers+2*toneOffset2+toneOffset)/numFFT);
+pb2 = sinc((numDataCarriers2+2*toneOffset2)/numFFT2*n);  % Sinc function prototype filter
+fnum2 = (pb2.*w)/sum(pb2.*w);  % Normalized lowpass filter coefficients
+fnum2 = fnum2.*exp(1i*2*pi*n*(numDataCarriers+2*toneOffset2+toneOffset)/numFFT);
 filtTx2 = dsp.FIRFilter(fnum2);
-filtRx2 = clone(filtTx2);
+filtRx2 = dsp.FIRFilter(conj(fnum2(end:-1:1)));
 
 %% Transmit Processing
+tic;
 err = zeros(size(snrdB));
 err2 = zeros(size(snrdB));
 errN = zeros(size(snrdB));
@@ -75,13 +75,13 @@ for k = 1:simTime
         txSig = txSigFOFDM + txSigFOFDM2;
         
         %% Channel
-        rxSig = awgn(txSig, snrdB(i), 'measured');  % Add WGN
-
 %         rayleighchan = comm.RayleighChannel('SampleRate',Fs);
-%         rxSig = rayleighchan(txSig);
-
+%         txSig = rayleighchan(txSig);
+% 
 %         ricianchan = comm.RicianChannel('SampleRate',Fs);
-%         rxSig = ricianchan(txSig);
+%         txSig = ricianchan(txSig);
+
+        rxSig = awgn(txSig, snrdB(i), 'measured');  % Add WGN
 
         %% Receive Processing
         % band1
@@ -105,12 +105,14 @@ for k = 1:simTime
 end
 ber = errN/simTime/length(bitsIn);
 ber2 = errN2/simTime/length(bitsIn2);
+toc;
 
 %% Output
-semilogy(snrdB, ber, '.-', snrdB, ber2, '.-');
+semilogy(snrdB, ber, '*-', snrdB, ber2, '*-');
+% semilogy(snrdB, (ber+ber2)/2)
 xlabel('snr/dB'); ylabel('ber');
 title(['F-OFDM, ' 'toneOffset1 = ' num2str(toneOffset) '  toneOffset2 = ' num2str(toneOffset2)])
-legend('band1', 'band2')
+% legend('band1', 'band2')
 
 % Set up a figure for spectrum plot
 hFig = figure;
@@ -125,7 +127,7 @@ title(['F-OFDM, ' 'toneOffset1 = ' num2str(toneOffset) '  toneOffset2 = ' num2st
     rectwin(length(txSigOFDM)), numFFT*2, 1, 'centered');
 plot(f,10*log10(psd));
 
-[psd,f] = periodogram(rxSig, rectwin(length(rxSig)), numFFT*2, 1, 'centered');
+[psd,f] = periodogram(txSig, rectwin(length(txSig)), numFFT*2, 1, 'centered');
 plot(f,10*log10(psd));
 legend('OFDM', 'FOFDM');
 
@@ -145,8 +147,8 @@ constDiagRx = comm.ConstellationDiagram( ...
     'ReferenceConstellation', refConst, ...
     'Position', figposition([20 15 30 40]), ...
     'EnableMeasurements', true, ...
-    'MeasurementInterval', length(dataRxSymbols), ...
+    'MeasurementInterval', length(dataRxSymbols2), ...
     'Title', 'F-OFDM Demodulated Symbols', ...
     'Name', 'F-OFDM Reception', ...
     'XLimits', [-1.5 1.5], 'YLimits', [-1.5 1.5]);
-constDiagRx(dataRxSymbols);
+constDiagRx(dataRxSymbols2);

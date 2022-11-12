@@ -6,6 +6,7 @@ for i = 1:slots
         (i-1)*bitsPerQAM*numDataCarriers*symsPerSlot);
     symsIn = qammod(bitsIn, 2^bitsPerQAM, 'InputType', 'bit', 'UnitAveragePower', true);
     symsIn = reshape(symsIn, [], symsPerSlot);
+%     symsIn(numDataCarriers/2) = 1;  % refSig
     symbolsInOFDM = [zeros(offset, symsPerSlot); symsIn; ...
         zeros(numFFT-offset-numDataCarriers, symsPerSlot)];
     ifftOut = ifft(ifftshift(symbolsInOFDM));
